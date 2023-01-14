@@ -1,9 +1,9 @@
 # IR-Project
 
-#Description
+# Description
 This project contains functions for a search engine that can tokenize text, calculate the cosine similarity between a query and document bodies, search for documents based on their titles and anchors, and merge scores from different sources to return a list of relevant documents.
 
-#Code Structure
+# Code Structure
 The project contains 4 helper functions in search_backend.py:
 
 tokenize (text, use_stemming = False): tokenize the input text and returns a list of tokens. It removes stopwords and applies stemming (optional)
@@ -26,5 +26,5 @@ get_pageview (): function takes a list of Wikipedia article IDs and returns the 
 •	idf (inverse document frequency) dictionary
 •	W_ij (normal of the document) dictionary
 •	pr (page rank) dictionary
-•	 titles dictionary that provide the title of each document
-![image](https://user-images.githubusercontent.com/117671571/212491521-3d390145-85d0-41ae-af5f-b84f78090816.png)
+•	titles dictionary that provide the title of each document
+

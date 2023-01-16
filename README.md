@@ -1,4 +1,4 @@
-# IR-Project
+# IR Project - Search Engine
 
 # Description
 This project contains functions for a search engine that can tokenize text, calculate the cosine similarity between a query and document bodies, search for documents based on their titles and anchors, and merge scores from different sources to return a list of relevant documents.
@@ -21,10 +21,10 @@ get_pagerank (): function takes a list of Wikipedia article IDs and returns the 
 get_pageview (): function takes a list of Wikipedia article IDs and returns the number of page views for each article in August 2021.
 
 
-•	index_body, index_title and index_anchor objects that provide the posting lists for each term and document
-•	DL (document length) dictionary
-•	idf (inverse document frequency) dictionary
-•	W_ij (normal of the document) dictionary
-•	pr (page rank) dictionary
-•	titles dictionary that provide the title of each document
+-	index_body, index_title and index_anchor objects that provide the posting lists for each term and document
+-	DL (document length) dictionary
+-	idf (inverse document frequency) dictionary
+-	W_ij (normal of the document) dictionary
+-	pr (page rank) dictionary
+-	titles dictionary that provide the title of each document
 

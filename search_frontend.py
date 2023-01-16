@@ -10,33 +10,6 @@ GCSFS = gcsfs.GCSFileSystem()
 
 class MyFlaskApp(Flask):
     def run(self, host=None, port=None, debug=None, **options):
-        # index_body_path = 'index_body.pkl'
-        # with open(index_body_path, 'rb') as f:
-        #     self.index_body = pickle.loads(f.read())
-        # index_title_path = 'index_title.pkl'
-        # with open(index_title_path, 'rb') as f:
-        #     self.index_title = pickle.loads(f.read())
-        # index_anchor_path = 'index_anchor.pkl'
-        # with open(index_anchor_path, 'rb') as f:
-        #     self.index_anchor = pickle.loads(f.read())
-        # page_rank_path = 'page_rank.pkl'
-        # with open(page_rank_path, 'rb') as f:
-        #     self.page_rank = pickle.loads(f.read())
-        # page_view_path = 'page_view.pkl'
-        # with open(page_view_path, 'rb') as f:
-        #     self.page_view = pickle.loads(f.read())
-        # titles_path = 'titles.pkl'
-        # with open(titles_path, 'rb') as f:
-        #     self.titles = pickle.loads(f.read())
-        # DL_path = 'DL.pkl'
-        # with open(DL_path, 'rb') as f:
-        #     self.DL = pickle.loads(f.read())
-        # idf_path = 'idf.pkl'
-        # with open(idf_path, 'rb') as f:
-        #     self.idf = pickle.loads(f.read())
-        # W_doc_path = 'w_doc.pkl'
-        # with open(W_doc_path, 'rb') as f:
-        #     self.w_doc = pickle.loads(f.read())
         with GCSFS.open('gs://315682872_209505593/index_body.pkl', 'rb') as f:
             self.index_body = pickle.loads(f.read())
         with GCSFS.open('gs://315682872_209505593/index_title.pkl', 'rb') as f:
@@ -98,7 +71,7 @@ def search():
     title_scores = search_title_helper(query_tok, app.index_title, 'postings_title')
     # dl = app.DL
     weight = 0.3
-    merged_results = merge_scores(len(query_tok), title_scores, body_scores, app.page_rank, weight, (1 - weight), 100)
+    merged_results = merge_scores(len(query_tok), title_scores, body_scores, app.page_rank, weight, (1 - weight), 20)
     res = [(x[0], app.titles.get(x[0], 'NO TITLE')) for x in merged_results]
     # END SOLUTION
     return jsonify(res)

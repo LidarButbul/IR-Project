@@ -71,7 +71,7 @@ def search():
     title_scores = search_title_helper(query_tok, app.index_title, 'postings_title')
     # dl = app.DL
     weight = 0.3
-    merged_results = merge_scores(len(query_tok), title_scores, body_scores, app.page_rank, weight, (1 - weight), 20)
+    merged_results = merge_scores(len(query_tok), title_scores, body_scores, app.page_rank, weight, (1 - weight), 10)
     res = [(x[0], app.titles.get(x[0], 'NO TITLE')) for x in merged_results]
     # END SOLUTION
     return jsonify(res)
